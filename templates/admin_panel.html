@@ -1,0 +1,42 @@
+{% extends 'layout.html' %}
+{% block title %}Admin Panel{% endblock %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h1>Admin Panel</h1>
+    <div>
+        <span id="bot-status-indicator" class="badge me-2">Connecting...</span>
+        <button id="toggle-bot-btn" class="btn btn-secondary">Toggle Bot Power</button>
+    </div>
+</div>
+
+<div class="card mb-4">
+    <div class="card-header">
+        <h3><i class="bi bi-gear-fill"></i> Services (Editable)</h3>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>ID</th><th>Name</th><th>Description</th><th>Price USD</th><th>Price BTC</th><th>Price Stars</th><th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for service in services %}
+                    <tr data-id="{{ service.service_id }}">
+                        <td>{{ service.service_id }}</td>
+                        <td contenteditable="true" data-field="name">{{ service.name }}</td>
+                        <td contenteditable="true" data-field="description">{{ service.description }}</td>
+                        <td contenteditable="true" data-field="price_usd">{{ service.price_usd }}</td>
+                        <td contenteditable="true" data-field="price_btc">{{ service.price_btc }}</td>
+                        <td contenteditable="true" data-field="price_stars">{{ service.price_stars }}</td>
+                        <td><button class="btn btn-sm btn-success save-btn">Save</button></td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
