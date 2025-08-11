@@ -1,0 +1,10 @@
+Flask
+Flask-Login
+Flask-SQLAlchemy
+Flask-SocketIO
+python-dotenv
+eventlet # Required for Flask-SocketIO
+python-telegram-bot
+fastapi
+psutil
+bs4
